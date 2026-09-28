@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKU Generator | Mega Orchids</title>
+    <meta name="description" content="Generate stock keeping units for orchid plants and supplies from a category, plant name, and stock quantity.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">M</span>
+                <span class="brand-name">Mega Orchids</span>
+            </a>
+
+            <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+                <span class="visually-hidden">Menu</span>
+                <span class="nav-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+
+            <nav class="site-nav" id="site-nav" data-nav-menu aria-label="Main">
+                <a class="nav-link" href="index.html" aria-current="page">SKU Generator</a>
+                <a class="nav-link" href="receipt_generator.html">Receipt Generator</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="shell">
+        <div class="banner">
+            <img src="banner.png" width="828" height="315" alt="Mega Orchids: importer, wholesaler, retailer. Bouquets of yellow, pink, and red orchids.">
+        </div>
+    </div>
+
+    <main id="main">
+        <div class="shell">
+            <div class="page-head">
+                <h1>SKU Generator</h1>
+                <p class="lede">
+                    Enter a category, a plant name, and the quantity on hand. The code is built
+                    from the first three letters of the category, up to three initials from the
+                    plant name, and the stock quantity padded to three digits.
+                </p>
+            </div>
+
+            <div class="panel">
+                <div class="panel-grid">
+
+                    <section class="panel-col" aria-labelledby="details-title">
+                        <h2 class="panel-title" id="details-title">Plant details</h2>
+
+                        <form id="sku-form">
+                            <div class="field">
+                                <label class="field-label" for="category">Category</label>
+                                <select id="category" class="control control-select">
+                                    <option value="Phalaenopsis">Phalaenopsis</option>
+                                    <option value="Cattleya">Cattleya</option>
+                                    <option value="Dendrobium">Dendrobium</option>
+                                    <option value="Vanda">Vanda</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label class="field-label" for="product_name">Plant name</label>
+                                <input type="text" id="product_name" class="control" placeholder="e.g. Moth Orchid" autocomplete="off">
+                            </div>
+
+                            <div class="field">
+                                <label class="field-label" for="quantity">Stock quantity</label>
+                                <input type="number" id="quantity" class="control" placeholder="e.g. 50" min="0" step="1">
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="button" py-click="SKU_generator">Generate SKU</button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <section class="panel-col" aria-labelledby="output-title">
+                        <h2 class="panel-title" id="output-title">Output</h2>
+                        <div id="sku_output" class="output" aria-live="polite">
+                            <p class="output-empty">Your generated SKU will appear here.</p>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="shell footer-inner">
+            <div class="footer-text">
+                <p class="footer-title">Skewer</p>
+                <p>ICT 10, 1st Quarter Project by Isidro Tuvilla and Enzo Ethan.</p>
+            </div>
+            <nav class="footer-links" aria-label="Site information">
+                <a href="https://github.com/SA-9R-IsidroE/STAANA_ICT10_Q1Project_IsidroTuvilla_EnzoEthan">GitHub Link</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="site.js"></script>
+    <py-script src="main.py"></py-script>
+</body>
+</html>
